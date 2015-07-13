@@ -1,0 +1,12 @@
+ctrocform_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ctrocformBundle:Default:index }
+
+
+ctrocform_add:
+    path:     /form/add
+    defaults: { _controller: ctrocformBundle:Default:add }
+
+ctrocform_addtwo:
+    path:     /form/addtwo
+    defaults: { _controller: ctrocformBundle:Default:addTwo }

@@ -1,0 +1,17 @@
+ctroc\formBundle\Entity\products:
+    type: entity
+    table: null
+    repositoryClass: ctroc\formBundle\Entity\productsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '100'
+        price:
+            type: integer
+    lifecycleCallbacks: {  }

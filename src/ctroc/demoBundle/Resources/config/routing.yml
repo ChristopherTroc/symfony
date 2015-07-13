@@ -1,0 +1,11 @@
+ctrocdemo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ctrocdemoBundle:Default:index }
+
+ctrocdemo_family:
+    path:     /family
+    defaults: { _controller: ctrocdemoBundle:Default:family }
+
+ctrocdemo_member_family:
+    path:     /member/{id}
+    defaults: { _controller: ctrocdemoBundle:Default:member }

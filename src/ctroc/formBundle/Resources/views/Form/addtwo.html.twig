@@ -1,0 +1,29 @@
+{% extends "::base.html.twig"  %}
+
+{% block body %}
+<div class="container" style="padding-top:1em">
+  {% for flashMessage in app.session.flashbag.get('msg') %}
+  <div class="alert alert-success">
+   {{ flashMessage }}
+  </div>
+  {% endfor %}
+  <div class="col-lg-12" >
+    <div class="row">
+      <div class="well" style="min-height:250px">
+        <h2> Agregar Producto </h2>
+        {{ form_start(form) }}
+        <div class="form-group col-lg-7">
+          <label class="control-label col-lg-3">Nombre Producto</label>
+          <div class="col-lg-5">{{ form_widget(form.name) }}</div>
+        </div>
+        <div class="form-group col-lg-7">
+          <label class="control-label col-lg-3"> Precio Producto</label>
+          <div class="col-lg-5">{{ form_widget(form.price) }}</div>
+        </div>
+        <div class="col-lg-12">{{ form_widget(form.save) }}</div>
+        {{ form_end(form)}}
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

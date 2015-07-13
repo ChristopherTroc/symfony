@@ -1,0 +1,17 @@
+{% extends "base.html.twig"  %}
+
+{% block body %}
+<div class="container">
+  <div class="col-lg-12" style="top:1em">
+    <div class="row">
+      <div class="well">
+        <h1> The family </h1>
+        <div class="list-group">
+        {% for member in family %}
+            <a class="list-group-item" href="{{ url('ctrocdemo_member_family', { id:member.id } ) }}" > {{ member.name }} </a>
+        {% endfor %}
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
