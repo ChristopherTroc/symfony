@@ -1,0 +1,88 @@
+Tips y Comandos principales simfony 2:
+
+*****************************************    Bundles:   **************************************************************************
+
+Crear bundle: app/console generate:bundle
+Tips: recordar que los bundles se instancian en el controllador principal AppKernel.php
+Rutas: Las rutas de este bundle quedan seteadas en el archivo /app/config/routes.yml
+
+*********************************************    Twigs:   ****************************************************************************+
+
+Tips: Es una herramienta para trabajar en la vista ofrece muchas posivilidades para poder desplegar de forma clara nuestras variables recividas desde el controlador.
+
+Algunas funciones:
+
+{{  nombre_variable }} Imprime variable (similar a un echo en php)
+
+{% for nombre_array  in llave_array %} (similar a un foreach en php)
+ {{ llave }} (imprime llave)
+{% endfor %}
+
+{{  url(“nombre ruta”) }}  La el nombre ruta debe ser alguno de los nombres asignados en nuestro routing.yml de nuestro Bundle
+
+{{  url(“nombre ruta”, { id:nombre_variable } ) }} de esta forma podemos pasar un parametro por get id=algo
+
+{{  asset(“images/icono.jpg“) }} la funcion asset nos lleva directamente a la carpeta «web» en donde ahi deberiamos crear nuestra carpeta de imagenes, css, js y tener nuestros archivos asset en ese lugar
+
+*************************************************+   Bloques en Twig:  *********************************************************************************
+
+Podemos exteneder nuestras vistas desde otra vista con el siguiente comando:
+{% extends:nombre_bundle:nombre_carpeta:archivo.html.twig %}
+
+tenemos la funcion de bloques que nos permite administrar de forma comoda nuestras vistas.
+{% block container %}
+<p> Este es el bloque container </p>p>
+{%  endblock %}}
+
+Podemos reemplazar el contenido de un bloque:
+{% block container %}
+<p> Reemplazo del contenido bloque container </p>p>
+{% endblock %}
+
+Podemos mantener el contenido de un bloque y agregar mas contenido:
+{%  block container %}
+{% parent() %} con esto mantenemos el contenido del block container
+<p> Esto es un texto agregado a block container </p>p>
+{%  endblock %}
+
+********************************    Doctrine:  **********************************************************************************
+
+
+        Entyti:
+        Symfoni utiliza un framework llamado Doctrine para administrar la base de datos.
+        Los modelos en synfony 2 se llaman entyti (entidades) y se desarrollan de forma automactica a travez del siguiente comando: php app/console doctrine:generate:entity
+
+        Esto automaticamente te guia por una pequeña aplicacion y te permite crear la tabla con sus distintos campo. al terminar el proceso veras en en tu bundle una carpeta /Entyti en donde habra un archvo php con el nombre de tu entidad dentro habra una clase de php (modelo) con la difinicion de tu tabla los set y get para cada campo de nuestra entidad (tabla).
+
+        Para que doctrine cree la tabla en la base de datos utilizamos el siguiente comando:
+        php app/console doctrine:schema:create
+
+        Para actualizar las tablas sin borrar informacion en el hoipotetico que hallamos agregado un nuevo campo usamos: php app/console doctrine:schema:update
+
+        Para borrar las tablas o entidades de la base de datos: 
+        php app/console doctrine:schema:drop
+
+
+        Mas comandos doctrine:
+        php app/console doctrine:database:drop
+
+
+
+***********************************************  Formularios:   *************************************************************************************+
+
+
+        Generar formulario consola: 
+        php app/console doctrine:generate:form nombreBundle:Entidad
+
+
+
+
+***************************************************        Git hub.   *********************************************************************************
+
+        Generar llave publica: 
+        ssh-keygen -t rsa -C “tu@email.com“
+
+        Crear repositorio, nos posecinamos en nuestra carpeta y hacemos git init
+        para añadir un archivo al repositorio hacemos git add nombre_archivo
+        Ver lista de archivos agregados git status
+        Para stage un archivo hacemos git commit -m “descripcion del comit“
